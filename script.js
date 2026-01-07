@@ -43,7 +43,7 @@ function sum(a, b, c) {
 
 const nums = [4, 2, 10];
 
-sum.apply(calc, [...nums]);
+sum.apply(calc, nums);
 
 // TASK #4
 
@@ -60,7 +60,8 @@ const robot = {
 
 const startFn = robot.start;
 
-const correctStart = startFn.bind(robot)();
+const correctStart = startFn.bind(robot);
+correctStart();
 
 // TASK #5
 
@@ -81,5 +82,6 @@ function applyDiscount(percent) {
   this.price = this.price - this.price * (percent / 100);
 }
 
-const discountFn = applyDiscount.call(shop, 20);
+const discountFn = applyDiscount;
+discountFn.call(shop, 20);
 shop.showPrice();
